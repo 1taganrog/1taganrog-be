@@ -1,0 +1,2 @@
+class HomeAudioController < ApplicationController
+end
