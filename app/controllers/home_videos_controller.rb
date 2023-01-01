@@ -1,0 +1,2 @@
+class HomeVideosController < ApplicationController
+end

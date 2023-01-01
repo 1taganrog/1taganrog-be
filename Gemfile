@@ -9,11 +9,13 @@ gem 'puma', '~> 5.0'
 gem 'rails', '~> 7.0.2', '>= 7.0.2.3'
 gem 'tzinfo-data', platforms: %i[ mingw mswin x64_mingw jruby ]
 gem 'rack-cors'
+gem "graphql", "~> 2.0"
+gem "graphiql-rails", "~> 1.8"
 
 group :development, :test do
   gem 'debug', platforms: %i[ mri mingw x64_mingw ]
 end
 
 group :development do
+  gem 'graphql-rails-generators'
 end
-
