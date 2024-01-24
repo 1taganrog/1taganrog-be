@@ -4,22 +4,31 @@ module Types
     include GraphQL::Types::Relay::HasNodeField
     include GraphQL::Types::Relay::HasNodesField
 
-    field :albums, [Types::AlbumType, null: false ],null: false, description: 'Return all albums'
-
-    def albums
-      Album.all
+    field :albumsPaginated, Types::AlbumType.collection_type, null: true do
+      argument :page, Integer, required: false
+      argument :limit, Integer, required: false
     end
 
-    field :museums, [Types::MuseumType, null: false ],null: false, description: 'Return all museums'
-
-    def museums
-      Museum.all
+    def albumsPaginated(page: nil, limit: nil)
+      ::Album.page(page).per(limit)
     end
 
-    field :industries, [Types::IndustryType, null: false ],null: false, description: 'Return all industries'
+    field :museumsPaginated, Types::MuseumType.collection_type, null: true do
+      argument :page, Integer, required: false
+      argument :limit, Integer, required: false
+    end
 
-    def industries
-      Industry.all
+    def museumsPaginated(page: nil, limit: nil)
+      ::Museum.page(page).per(limit)
+    end
+
+    field :industriesPaginated, Types::IndustryType.collection_type, null: true do
+      argument :page, Integer, required: false
+      argument :limit, Integer, required: false
+    end
+
+    def industriesPaginated(page: nil, limit: nil)
+      ::Industry.page(page).per(limit)
     end
 
     field :homeVideo, Types::HomeVideoType ,null: false, description: 'Return home video'

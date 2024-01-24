@@ -12,6 +12,10 @@ gem 'rack-cors'
 gem "graphql", "~> 2.0"
 gem "graphiql-rails", "~> 1.8"
 
+# Pagination. Source: https://github.com/RenoFi/graphql-pagination
+gem 'graphql-pagination'
+gem 'kaminari-activerecord'
+
 group :development, :test do
   gem 'debug', platforms: %i[ mri mingw x64_mingw ]
 end
